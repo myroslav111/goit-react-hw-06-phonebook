@@ -58,6 +58,7 @@ function FormPhonebook() {
       return;
     }
     dispatch(add(formData));
+    toast.success("success");
     reset();
   };
 
