@@ -25,8 +25,8 @@ export const BoxList = styled.div`
   margin-right: auto;
   font-family: "The Nautigal", cursive;
   /* background-color: rgba(123, 128, 135, 0.5); */
-  &:hover {
+  /* &:hover {
     transform: scale(1.1);
     z-index: 1;
-  }
+  } */
 `;

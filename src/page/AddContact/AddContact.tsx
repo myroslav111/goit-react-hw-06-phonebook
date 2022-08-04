@@ -7,7 +7,7 @@ const AddContact = () => {
   return (
     <Container>
       <FormPhonebook />
-      <ToastContainer autoClose={3000} />
+      <ToastContainer autoClose={1000} />
     </Container>
   );
 };
