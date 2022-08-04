@@ -7,8 +7,10 @@ export const Form = styled.form`
   padding: 10px;
   width: 60%;
   /* background-color: rgba(123, 128, 135, 0.5); */
-  background-color: rgba(0, 0, 0, 1);
+  /* background-color: rgba(0, 0, 0, 1); */
+  background: white;
   box-shadow: 0 1px 3px 0 rgb(60 64 67 / 30%), 0 4px 8px 3px rgb(60 64 67 / 15%);
+  /* box-shadow: 0 1px 3px 0 rgb(60 64 67 / 30%), 0 4px 8px 3px rgb(60 64 67 / 15%); */
   border-radius: 8px;
   font-family: "Rampart One", cursive;
   position: relative;

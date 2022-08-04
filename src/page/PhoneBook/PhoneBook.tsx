@@ -1,12 +1,13 @@
 import SearchForm from "../../components/PhoneBookContacts/SearchForm";
 import PhoneBookContacts from "../../components/PhoneBookContacts";
+import { Container } from "./PhoneBook.styled";
 
 const PhoneBook = () => {
   return (
-    <div>
+    <Container>
       <SearchForm />
       <PhoneBookContacts />
-    </div>
+    </Container>
   );
 };
 

@@ -18,8 +18,8 @@ export const ButtonDelete = styled.button`
   font-size: 25px;
   color: black;
   padding: 0;
-  width: 60px;
-  height: 25px;
+  width: 70px;
+  height: 30px;
   border: 2px solid #888888;
   outline: none;
   background-color: #f4f5f6;

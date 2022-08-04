@@ -19,10 +19,11 @@ export const ButtonSubmit = styled.button`
   transition: 0.5s;
   letter-spacing: 3px;
   border-radius: 8px;
-  background: #0052fe;
+  /* background: #0052fe; */
+  background-color: rgb(237, 237, 237);
   box-shadow: 0 1px 3px 0 rgb(60 64 67 / 30%), 0 4px 8px 3px rgb(60 64 67 / 15%);
   -webkit-box-reflect: below -3px linear-gradient(transparent, #0005);
-  color: white;
+  color: black;
   &:hover {
     background-color: #03e9f4;
     color: #050801;
@@ -38,7 +39,7 @@ export const ButtonSubmit = styled.button`
     left: -100%;
     width: 100%;
     height: 2px;
-    background: linear-gradient(90deg, transparent, #fe0016);
+    background: linear-gradient(90deg, transparent, grey);
     animation: animation1 1s linear infinite;
     animation-delay: 0.25s;
   }
@@ -47,7 +48,7 @@ export const ButtonSubmit = styled.button`
     right: 0%;
     width: 2px;
     height: 100%;
-    background: linear-gradient(180deg, transparent, #fe0016);
+    background: linear-gradient(180deg, transparent, grey);
     animation: animation2 1s linear infinite;
     animation-delay: 0.25s;
   }
@@ -56,7 +57,7 @@ export const ButtonSubmit = styled.button`
     right: -100%;
     width: 100%;
     height: 2px;
-    background: linear-gradient(270deg, transparent, #fe0016);
+    background: linear-gradient(270deg, transparent, grey);
     animation: animation3 1s linear infinite;
     animation-delay: 0.5s;
   }
@@ -65,7 +66,7 @@ export const ButtonSubmit = styled.button`
     left: 0;
     width: 2px;
     height: 100%;
-    background: linear-gradient(360deg, transparent, #fe0016);
+    background: linear-gradient(360deg, transparent, grey);
     animation: animation4 1s linear infinite;
     animation-delay: 0.75s;
   }

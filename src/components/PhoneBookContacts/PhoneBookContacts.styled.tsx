@@ -1,4 +1,4 @@
-import styled from '@emotion/styled';
+import styled from "@emotion/styled";
 
 export const ListWraper = styled.ul`
   padding-left: 0;
@@ -6,7 +6,7 @@ export const ListWraper = styled.ul`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  width: 390px;
+  /* width: 390px; */
   @media screen and (max-width: 500px) {
     & {
       width: 330px;
@@ -19,7 +19,12 @@ export const BoxList = styled.div`
   border-radius: 8px;
   box-shadow: 0 1px 3px 0 rgb(60 64 67 / 30%), 0 4px 8px 3px rgb(60 64 67 / 15%);
   padding: 10px;
-  background-color: rgba(123, 128, 135, 0.5);
+  border: 1px solid grey;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: "The Nautigal", cursive;
+  /* background-color: rgba(123, 128, 135, 0.5); */
   &:hover {
     transform: scale(1.1);
     z-index: 1;

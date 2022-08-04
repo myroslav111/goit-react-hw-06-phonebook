@@ -4,7 +4,7 @@ export const InputWrap = styled.label`
   display: flex;
   flex-direction: column;
   width: 80%;
-  color: white;
+  color: black;
   font-size: 25px;
 `;
 export const InputBook = styled.input`
@@ -18,11 +18,11 @@ export const InputBook = styled.input`
   transition: background linear 0.27s, box-shadow linear 0ms 0.27s;
   white-space: nowrap;
   background: #fff;
-  /* box-shadow: 0 1px 3px 0 rgb(60 64 67 / 30%), 0 4px 8px 3px rgb(60 64 67 / 15%); */
+  box-shadow: 0 1px 3px 0 rgb(60 64 67 / 30%), 0 4px 8px 3px rgb(60 64 67 / 15%);
   -webkit-box-shadow: 0 10px 6px -6px #777;
   -moz-box-shadow: 0 10px 6px -6px #777;
-
-  box-shadow: 0px 5px 10px 0px rgba(0, 255, 255, 0.7);
+  border: 1px solid rgb(237, 237, 237);
+  /* box-shadow: 0px 5px 10px 0px rgba(0, 255, 255, 0.7); */
   opacity: 1;
   visibility: visible;
   flex-basis: auto;

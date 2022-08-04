@@ -1,16 +1,26 @@
-import { ButtonDelete, Item, Name, Number } from "./ContactItem.styled";
+import { Item, Name, Number, ButtonDelete } from "./ContactItem.styled";
+import { connect } from "react-redux";
+import actions from "../../../redux/actions";
 
-function ContactItem() {
+function ContactItem(props: any) {
+  console.log(props);
+  const { contact, onDeleteContact } = props;
   return (
-    <Item>
+    <Item key={contact.id}>
       <div>
-        <Name>kjkjjkj:</Name>
-        <Number> 67676767</Number>
+        <Name> {contact.name}:</Name>
+        <Number>{contact.number}</Number>
       </div>
 
-      <ButtonDelete type="button">delete</ButtonDelete>
+      <ButtonDelete type="button" onClick={() => onDeleteContact(contact.id)}>
+        delete
+      </ButtonDelete>
     </Item>
   );
 }
 
-export default ContactItem;
+const mapDispatchToProps = (dispatch: any) => ({
+  onDeleteContact: (id: string) => dispatch(actions.deleteData(id)),
+});
+
+export default connect(null, mapDispatchToProps)(ContactItem);

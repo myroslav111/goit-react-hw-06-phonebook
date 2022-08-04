@@ -1,32 +1,13 @@
 import { createStore } from "redux";
+import { combineReducers } from "redux";
+import { composeWithDevTools } from "redux-devtools-extension";
+import reducers from "./reducers";
 
-// const initialState = {
-//   contacts: {
-//     items: [],
-//     filter: "",
-//   },
-// };
-interface IContacts {
-  items: string[];
-  filter: "";
-}
+const rootReducer = combineReducers({
+  contact: reducers,
+});
 
-const contacts: IContacts = {
-  items: [],
-  filter: "",
-};
-
-const reducer = (state: any = contacts, action: any) => {
-  switch (action.type) {
-    case "contacts/data":
-      return {};
-
-    default:
-      return state;
-  }
-};
-
-const store = createStore(reducer);
+const store = createStore(rootReducer, composeWithDevTools());
 // можно передать пред. состояние
 // const store = createStore(reducer, {prev.state});
 
