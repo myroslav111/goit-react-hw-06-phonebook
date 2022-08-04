@@ -3,13 +3,10 @@ import { connect } from "react-redux";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 import ContactItem from "./ContactItem";
 import "./animations/animation.css";
-// import actions from "../../redux/actions";
 
 function PhoneBookContacts({ arrContacts }: any) {
   return (
     <BoxList>
-      {/* <ListWraper> */}
-      {/* <ContactItem /> */}
       <TransitionGroup component={ListWraper}>
         {arrContacts.map((contact: any) => (
           <CSSTransition key={contact.id} timeout={250} classNames="fade">
@@ -17,17 +14,33 @@ function PhoneBookContacts({ arrContacts }: any) {
           </CSSTransition>
         ))}
       </TransitionGroup>
-      {/* </ListWraper> */}
     </BoxList>
   );
 }
+// отфильтрованый масив контактов отвечающий поиску
+const getVisibleContact = (allContact: Object[], filter: string) => {
+  const normalizeFilter = filter.toLowerCase();
+  return allContact.filter((contact: any) =>
+    contact.name.toLowerCase().includes(normalizeFilter)
+  );
+};
+// exemple
+// const mapStateToProps = (state: any) => {
+//   const { items, filterData } = state.contact;
+//   // const normalizeFilter = filterData.toLowerCase();
+//   // const visibleTodos = items.filter((contact: any) =>
+//   //   contact.name.toLowerCase().includes(normalizeFilter)
+//   // );
+//   // отфильтрованый масив контактов отвечающий поиску
+//   const visibleTodos = getVisibleContact(items, filterData);
 
-const mapStateToProps = (state: any) => ({
-  arrContacts: state.contact.items,
+//   return {
+//     arrContacts: visibleTodos,
+//   };
+// };
+
+const mapStateToProps = ({ contact: { items, filterData } }: any) => ({
+  arrContacts: getVisibleContact(items, filterData),
 });
-
-// const mapDispatchToProps = (dispatch: any) => ({
-//   onDeleteContact: (id: string) => dispatch(actions.deleteData(id)),
-// });
 
 export default connect(mapStateToProps, null)(PhoneBookContacts);

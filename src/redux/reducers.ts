@@ -1,5 +1,6 @@
 import { combineReducers } from "redux";
-// import { nanoid } from "nanoid";
+import types from "./actions-types";
+
 interface IContactObj {
   id: string;
   name: string;
@@ -22,23 +23,26 @@ const contacts: IContacts = {
 };
 
 // const initialContacts =
-const items = (state: any = contacts.items, action: any) => {
-  switch (action.type) {
-    case "contacts/data":
-      return [...state, action.payload];
+const items = (state: Object[] = contacts.items, { type, payload }: any) => {
+  switch (type) {
+    case types.ADD_CONTACT:
+      return [...state, payload];
 
-    case "delete/data":
-      return state.filter((contact: any) => contact.id !== action.payload);
+    case types.DEL_CONTACT:
+      return state.filter((contact: any) => contact.id !== payload);
 
     default:
       return state;
   }
 };
 
-const filterData = (state: any = contacts.filter, action: any) => {
-  switch (action.type) {
-    case "filter/data":
-      return "";
+const filterData = (
+  state: string = contacts.filter,
+  { type, payload }: any
+) => {
+  switch (type) {
+    case types.FILTER_CONTACTS:
+      return payload;
 
     default:
       return state;

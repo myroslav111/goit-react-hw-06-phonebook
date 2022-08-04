@@ -16,9 +16,8 @@ function FormPhonebook(props: any) {
   const [name, setName] = useState("");
   const [number, setNumber] = useState("");
   // записываем значение инпута по name
-  const handleChange = (e: any) => {
-    const { name, value } = e.target;
-    console.log(name);
+  const handleChange = (e: React.FormEvent<HTMLInputElement>): void => {
+    const { name, value } = e.currentTarget;
     switch (name) {
       case "name":
         setName(value);
@@ -33,11 +32,15 @@ function FormPhonebook(props: any) {
     }
   };
   // при сабмите отправляем в App данные для создания обьекта контакта
-  const handleSubmit = (e: any) => {
+  const handleSubmit = (e: React.SyntheticEvent) => {
     e.preventDefault();
     const formData: IFormData = { name, number };
-    formData.name = e.target.name.value;
-    formData.number = e.target.number.value;
+    const target = e.target as typeof e.target & {
+      name: { value: string };
+      number: { value: string };
+    };
+    formData.name = target.name.value;
+    formData.number = target.number.value;
     props.submit(formData);
     reset();
   };

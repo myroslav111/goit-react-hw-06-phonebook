@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 import actions from "../../../redux/actions";
 
 function ContactItem(props: any) {
-  console.log(props);
   const { contact, onDeleteContact } = props;
   return (
     <Item key={contact.id}>
