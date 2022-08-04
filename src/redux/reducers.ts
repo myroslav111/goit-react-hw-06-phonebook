@@ -1,7 +1,9 @@
-import { combineReducers } from "redux";
-import types from "./actions-types";
+import { createSlice } from "@reduxjs/toolkit";
+import type { PayloadAction } from "@reduxjs/toolkit";
+// import { combineReducers } from "redux";
+// import types from "./actions-types";
 
-interface IContactObj {
+export interface IContactObj {
   id: string;
   name: string;
   number: string;
@@ -22,34 +24,62 @@ const contacts: IContacts = {
   filter: "",
 };
 
-// const initialContacts =
-const items = (state: Object[] = contacts.items, { type, payload }: any) => {
-  switch (type) {
-    case types.ADD_CONTACT:
-      return [...state, payload];
-
-    case types.DEL_CONTACT:
-      return state.filter((contact: any) => contact.id !== payload);
-
-    default:
-      return state;
-  }
-};
-
-const filterData = (
-  state: string = contacts.filter,
-  { type, payload }: any
-) => {
-  switch (type) {
-    case types.FILTER_CONTACTS:
-      return payload;
-
-    default:
-      return state;
-  }
-};
-
-export default combineReducers({
-  items,
-  filterData,
+export const contactSlice: any = createSlice({
+  name: "contact",
+  initialState: contacts,
+  reducers: {
+    add: (state, action: PayloadAction<IContactObj>) => {
+      state.items.push(action.payload);
+    },
+    remove: (state: any, action: PayloadAction<string>) => {
+      return {
+        ...state,
+        items: state.items.filter(
+          (contact: any) => contact.id !== action.payload
+        ),
+      };
+    },
+    filtered: (state: any, action: PayloadAction<string>) => {
+      return { ...state, filter: action.payload };
+    },
+  },
 });
+
+// Action creators are generated for each case reducer function
+export const { add, remove, filtered } = contactSlice.actions;
+
+export default contactSlice.reducer;
+
+/**----------------------------------------------------------- */
+// // const initialContacts =
+// const items = (state: Object[] = contacts.items, { type, payload }: any) => {
+//   switch (type) {
+//     case types.ADD_CONTACT:
+//       return [...state, payload];
+
+//     case types.DEL_CONTACT:
+//       return state.filter((contact: any) => contact.id !== payload);
+
+//     default:
+//       return state;
+//   }
+// };
+
+// const filterData = (
+//   state: string = contacts.filter,
+//   { type, payload }: any
+// ) => {
+//   switch (type) {
+//     case types.FILTER_CONTACTS:
+//       return payload;
+
+//     default:
+//       return state;
+//   }
+// };
+
+// export default combineReducers({
+//   items,
+//   filterData,
+// });
+/*------------------------------------------------------------------------------- */
